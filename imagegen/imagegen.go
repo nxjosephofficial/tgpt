@@ -27,6 +27,7 @@ func GenerateImg(prompt string, params structs.ImageParams, isQuite bool) {
 		if !isQuite {
 			fmt.Printf("Saved image as %v\n", filename)
 		}
+		utils.PreviewImg(filename)
 
 	} else {
 		fmt.Fprintln(os.Stderr, "Such a provider doesn't exist")

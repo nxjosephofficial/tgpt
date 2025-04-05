@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
+	"os/exec"
 )
 
 func RandomString(length int) string {
@@ -41,4 +42,17 @@ func LogToFile(text string, logType string, logPath string) {
 		fmt.Fprintln(os.Stderr, "Error:", err)
 
 	}
+}
+
+func PreviewImg(img string) {
+	cmd := exec.Command("xdg-open", img)
+	stdout, err := cmd.Output()
+
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "Error:", err)
+
+	}
+
+    // Print the output
+    fmt.Println(string(stdout))
 }
